@@ -1,7 +1,3 @@
----
-layout: page
-title: Li Ren Wong
----
 
 # Li Ren Wong
 
