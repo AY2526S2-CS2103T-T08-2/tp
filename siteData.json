@@ -176,6 +176,16 @@
       "headingKeywords": {}
     },
     {
+      "src": "team/louis.md",
+      "headings": {
+        "louis-yu": "Louis Yu",
+        "about": "About",
+        "projects": "Projects",
+        "skills": "Skills"
+      },
+      "headingKeywords": {}
+    },
+    {
       "src": "team/yisheng.md",
       "headings": {
         "toh-yi-sheng": "Toh Yi Sheng",
