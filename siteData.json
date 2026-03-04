@@ -136,11 +136,9 @@
     },
     {
       "src": "team/jiacheng.md",
+      "title": "Jia Cheng's Project Portfolio Page",
       "headings": {
-        "ong-jia-cheng": "Ong Jia Cheng",
-        "about": "About",
-        "projects": "Projects",
-        "skills": "Skills"
+        "project-maladress-1-1": "Project: MALAdress 1.1"
       },
       "headingKeywords": {}
     },
