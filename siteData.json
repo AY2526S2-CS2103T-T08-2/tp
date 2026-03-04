@@ -152,13 +152,16 @@
     },
     {
       "src": "team/liren.md",
+      "title": "Li Ren Wong's Project Portfolio Page",
       "headings": {
-        "wong-li-ren": "Wong Li Ren",
-        "about": "About",
-        "projects": "Projects",
-        "maladdress-team-project": "MALAddress (Team Project)",
-        "peggy-java-cli-chatbot": "Peggy (Java CLI Chatbot)",
-        "skills": "Skills"
+        "project-maladdress-based-on-addressbook-level-3": "Project: MALAddress (based on AddressBook Level 3)",
+        "new-features": "New Features",
+        "enhancements-to-existing-features": "Enhancements to Existing Features",
+        "devops-project-infrastructure": "DevOps / Project Infrastructure",
+        "documentation": "Documentation",
+        "testing": "Testing",
+        "code-contributed": "Code Contributed",
+        "team-contributions-collaboration": "Team Contributions / Collaboration"
       },
       "headingKeywords": {}
     }
