@@ -164,6 +164,18 @@
         "team-contributions-collaboration": "Team Contributions / Collaboration"
       },
       "headingKeywords": {}
+    },
+    {
+      "src": "team/yisheng.md",
+      "headings": {
+        "toh-yi-sheng": "Toh Yi Sheng",
+        "about": "About",
+        "projects": "Projects",
+        "maladdress-team-project": "MALAddress (Team Project)",
+        "tyrone-java-cli-chatbot": "Tyrone (Java CLI Chatbot)",
+        "skills": "Skills"
+      },
+      "headingKeywords": {}
     }
   ]
 }
