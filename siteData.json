@@ -135,6 +135,16 @@
       "headingKeywords": {}
     },
     {
+      "src": "team/gallardo.md",
+      "headings": {
+        "cheneil-gallardo-lee": "Cheneil Gallardo Lee",
+        "about": "About",
+        "projects": "Projects",
+        "skills": "Skills"
+      },
+      "headingKeywords": {}
+    },
+    {
       "src": "team/jiacheng.md",
       "title": "Jia Cheng's Project Portfolio Page",
       "headings": {
