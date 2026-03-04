@@ -272,12 +272,13 @@ _{Explain here how the data archiving feature will be implemented}_
 
 ### Product scope
 
-**Target user profile**: 
+### Target user profile: 
+
 MALAddress is for hawker stall owners and stall staff who manage contacts of suppliers and regular customers in a fast-paced environment.
 
-**Value proposition**: 
+### Value proposition: 
+
 MALAddress lets hawker stall staff quickly store, retrieve, and update supplier/customer contact details via CLI. Staff can search contacts by keywords such as supply type or customer preferences (not just names), reducing time wasted searching across chat apps/paper notes and lowering supplier mix-ups during peak hours.
----
 
 ### User stories
 
@@ -310,7 +311,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Add a supplier/customer contact with contact info**
+**Use case 1: Add a supplier/customer contact with contact info**
 
 **MSS**
 
@@ -416,7 +417,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 
 
-**Use case: Tag a contact as supplier/customer and update remarks**
+**Use case 2: Tag a contact as supplier/customer and update remarks**
 System updates the contact with the new tag and updated remarks.
 
 
@@ -437,7 +438,7 @@ System updates the contact with the new tag and updated remarks.
 
 
 
-**Use case: List all currently available suppliers (“open now”)**
+**Use case 3: List all currently available suppliers (“open now”)**
 
 **MSS**
 
