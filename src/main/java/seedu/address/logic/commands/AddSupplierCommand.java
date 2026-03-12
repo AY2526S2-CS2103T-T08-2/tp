@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_OPENING_HOURS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
@@ -26,16 +27,20 @@ public class AddSupplierCommand extends Command {
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_ADDRESS + "ADDRESS "
+            + PREFIX_OPENING_HOURS + "OPENING HOURS "
             + PREFIX_TAG + "TAG [" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "Ah Seng "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "a@b.com "
             + PREFIX_ADDRESS + "Yishun "
+            + PREFIX_OPENING_HOURS + "0900 - 1800 "
             + PREFIX_TAG + "vegetable";
 
     public static final String MESSAGE_SUCCESS = "New supplier added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This supplier already exists in the address book";
+
+    public static final String MESSAGE_TAG_REQUIRED = "Suppliers must have at least one tag (t/...).";
 
     private final Person toAdd;
 
