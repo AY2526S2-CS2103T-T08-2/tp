@@ -41,7 +41,7 @@ public class Person {
     }
 
     public String getPersonType() {
-        return "Person";
+        return "Customer";
     }
 
     public Name getName() {
