@@ -4,6 +4,7 @@ import java.util.Comparator;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -47,6 +48,8 @@ public class SupplierCard extends UiPart<Region> {
     @FXML
     private Label type;
     @FXML
+    private ImageView favouriteIcon;
+    @FXML
     private FlowPane tags;
 
     /**
@@ -64,6 +67,7 @@ public class SupplierCard extends UiPart<Region> {
         openingHours.setText("Opening Hours: " + supplier.getOpeningHours() + "  |  " + supplier.timeLeft());
         typeBadge.setVisible(true);
         typeBadge.setManaged(true);
+        favouriteIcon.setVisible(supplier.isFavourite());
         type.setText(supplier.getPersonType());
 
         supplier.getTags().stream()
