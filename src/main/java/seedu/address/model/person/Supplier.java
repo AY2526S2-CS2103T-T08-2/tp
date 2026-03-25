@@ -84,6 +84,10 @@ public class Supplier extends Person {
         return isAfterOpenTime & isBeforeCloseTime;
     }
 
+    /**
+     * Returns time left.
+     * @return Time left as a string representation.
+     */
     public String timeLeft() {
         LocalTime now = LocalTime.now();
         Duration duration = Duration.between(now, closeTime);
@@ -92,7 +96,7 @@ public class Supplier extends Person {
             return "closed";
         }
 
-        long hours   = duration.toHours();
+        long hours = duration.toHours();
         long minutes = duration.toMinutes() % 60;
 
         return String.format("%02d:%02d until closing", hours, minutes);
