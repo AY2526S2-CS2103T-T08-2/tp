@@ -51,7 +51,8 @@ Command .up.> CommandResult : <<create>>
 
 note right of Command
 Command implementations include:
-XYZCommand
+AddCommand, AddSupplierCommand, DeleteCommand, EditCommand, FindCommand
+TagCommand, OpenCommand, UndoCommand, RedoCommand, RemarkCommand, FavCommand
 end note
 
 @enduml
