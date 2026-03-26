@@ -1,6 +1,6 @@
 package seedu.address.logic.commands;
 
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARKS;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.List;
@@ -12,40 +12,40 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Supplier;
-import seedu.address.model.tag.Tag;
 
 /**
- * Replaces the tags of an existing person in the address book.
+ * Replaces the remarks to an existing person in the address book.
  *
  * <p>The target person is identified using the index shown in the currently displayed person list.
- * The person's existing tags will be overwritten by the tags provided in the command.</p>
+ * The person's existing remarks will be overwritten by the remarks 
+ * provided in the command.</p>
  */
-public class TagCommand extends Command {
+public class RemarksCommand extends Command {
 
-    public static final String COMMAND_WORD = "tag";
+    public static final String COMMAND_WORD = "remarks";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Replaces the tags of the person identified "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Replaces the remarks of the person identified "
             + "by the index number used in the displayed person list.\n"
-            + "Example: " + COMMAND_WORD + " 3 " + PREFIX_TAG + "vegetable " + PREFIX_TAG + "fruits";
+            + "Example: " + COMMAND_WORD + " 3 " + PREFIX_REMARKS + "vegetable " + PREFIX_REMARKS + "fruits";
 
-    public static final String MESSAGE_SUCCESS = "Updated tags for: %1$s";
+    public static final String MESSAGE_SUCCESS = "Updated remarks for: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
 
     private final Index index;
-    private final Set<Tag> tags;
+    private final String remarks;
     /**
-     * Creates a {@code TagCommand} that replaces the tags of the person at {@code index}.
+     * Creates a {@code RemarkCommand} that replaces the remarks of the person at {@code index}.
      *
-     * @param index Index of the person in the filtered person list whose tags will be replaced.
-     * @param tags  Tags to replace the person's existing tags with.
+     * @param index Index of the person in the filtered person list whose remarks will be replaced.
+     * @param remarks  Remarks to replace the person's existing remarks with.
      */
-    public TagCommand(Index index, Set<Tag> tags) {
+    public RemarksCommand(Index index, String remarks) {
         this.index = index;
-        this.tags = tags;
+        this.remarks = remarks;
     }
 
     /**
-     * Executes the command and replaces the tags of the specified person.
+     * Executes the command and replaces the remarks of the specified person.
      *
      * @param model The model containing the current address book data.
      * @return A {@code CommandResult} containing the result message to be shown to the user.
@@ -62,41 +62,39 @@ public class TagCommand extends Command {
 
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
-	Person taggedPerson;
+	Person remarkedPerson;
 
 	if (personToEdit instanceof Supplier supplier) {
-            taggedPerson = new Supplier(
+            remarkedPerson = new Supplier(
                     supplier.getName(),
                     supplier.getPhone(),
                     supplier.getEmail(),
                     supplier.getAddress(),
-		                supplier.getRemarks(),
-                    tags,
-                    supplier.isFavourite(),
+		    remarks,
+                    supplier.getTags(),
                     supplier.getOpeningHours(),
                     supplier.getAlternativeContact()
             );
 	} else {
-            taggedPerson = new Person(
+            remarkedPerson = new Person(
                     personToEdit.getName(),
                     personToEdit.getPhone(),
                     personToEdit.getEmail(),
                     personToEdit.getAddress(),
-		                personToEdit.getRemarks(),
-                    tags,
-                    personToEdit.isFavourite()
+		    remarks,
+                    personToEdit.getTags()
             );
 	}
 
         // Same duplicate check pattern as EditCommand
-        if (!personToEdit.isSamePerson(taggedPerson) && model.hasPerson(taggedPerson)) {
+        if (!personToEdit.isSamePerson(remarkedPerson) && model.hasPerson(remarkedPerson)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
-        model.setPerson(personToEdit, taggedPerson);
+        model.setPerson(personToEdit, remarkedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
 
-        return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.format(taggedPerson)));
+        return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.format(remarkedPerson)));
     }
 
     @Override
@@ -104,10 +102,10 @@ public class TagCommand extends Command {
         if (other == this) {
             return true;
         }
-        if (!(other instanceof TagCommand)) {
+        if (!(other instanceof RemarksCommand)) {
             return false;
         }
-        TagCommand o = (TagCommand) other;
-        return index.equals(o.index) && tags.equals(o.tags);
+        RemarksCommand o = (RemarksCommand) other;
+        return index.equals(o.index) && remarks.equals(o.remarks);
     }
 }

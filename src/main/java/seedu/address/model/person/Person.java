@@ -24,19 +24,22 @@ public class Person {
     // Data field
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
+    private final String remarks;
+
     private final boolean isFavourite;
 
     /**
      * Constructs a {@code Person} with the given details.
      * Person is not favourite by default.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Person(Name name, Phone phone, Email email, Address address, String remarks, Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, address, remarks, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
+	      this.remarks = remarks;
         this.isFavourite = false;
     }
 
@@ -72,6 +75,10 @@ public class Person {
 
     public Address getAddress() {
         return address;
+    }
+
+    public String getRemarks() {
+        return remarks;
     }
 
     public boolean isOpen() {

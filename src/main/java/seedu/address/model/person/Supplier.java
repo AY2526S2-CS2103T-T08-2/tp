@@ -26,9 +26,9 @@ public class Supplier extends Person {
      * Constructs a {@code Supplier} with the given details.
      * Supplier is not favourite by default.
      */
-    public Supplier(Name name, Phone phone, Email email, Address address,
+    public Supplier(Name name, Phone phone, Email email, Address address, String remarks,
                     Set<Tag> tags, String openingHours, Phone alternativeContact) throws DateTimeParseException {
-        super(name, phone, email, address, tags);
+        super(name, phone, email, address, remarks, tags);
         requireAllNonNull(openingHours);
         this.openingHoursString = openingHours;
 

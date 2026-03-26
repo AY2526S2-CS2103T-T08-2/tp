@@ -31,6 +31,7 @@ class JsonAdaptedPerson {
     private final String email;
     private final String address;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
+    private final String remarks;
     private final String isFavourite;
     private final String openingHours;
     private final String alternativeContact;
@@ -42,6 +43,7 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(@JsonProperty("personType") String personType,
                              @JsonProperty("name") String name, @JsonProperty("phone") String phone,
                              @JsonProperty("email") String email, @JsonProperty("address") String address,
+                             @JsonProperty("remarks") String remarks,
                              @JsonProperty("tags") List<JsonAdaptedTag> tags,
                              @JsonProperty("isFavourite") String isFavourite,
                              @JsonProperty("openingHours") String openingHours,
@@ -54,6 +56,7 @@ class JsonAdaptedPerson {
         if (tags != null) {
             this.tags.addAll(tags);
         }
+	      this.remarks = remarks;
         this.isFavourite = isFavourite;
         this.openingHours = openingHours;
         this.alternativeContact = alternativeContact;
@@ -67,6 +70,7 @@ class JsonAdaptedPerson {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         address = source.getAddress().value;
+	remarks = source.getRemarks();
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -126,6 +130,8 @@ class JsonAdaptedPerson {
         }
         final Address modelAddress = new Address(address);
 
+	final String modelRemarks = remarks;
+
         final Set<Tag> modelTags = new HashSet<>(personTags);
 
         if (isFavourite == null) {
@@ -141,9 +147,9 @@ class JsonAdaptedPerson {
                     ? new Phone(alternativeContact)
                     : null;
             return new Supplier(modelName, modelPhone, modelEmail,
-                    modelAddress, modelTags, modelIsFavourite, openingHours, modelAltContact);
+                    modelAddress, modelRemarks, modelTags, openingHours, modelAltContact);
         } else {
-            return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelIsFavourite);
+            return new Person(modelName, modelPhone, modelEmail, modelAddress, modelRemarks, modelTags, modelIsFavourite);
         }
 
     }
