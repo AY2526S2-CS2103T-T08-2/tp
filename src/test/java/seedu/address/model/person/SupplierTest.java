@@ -15,10 +15,7 @@ import static seedu.address.testutil.TypicalSuppliers.BEN;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.model.person.Supplier;
 import seedu.address.testutil.SupplierBuilder;
-
-import java.time.LocalTime;
 
 public class SupplierTest {
 
