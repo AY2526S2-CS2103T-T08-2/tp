@@ -76,6 +76,9 @@ public class Supplier extends Person {
         return new LocalTime[]{openTime, closeTime};
     }
 
+    /**
+     * Returns the opening hours of supplier.
+     */
     public String getOpeningHours() {
         return openingHoursString;
     }
