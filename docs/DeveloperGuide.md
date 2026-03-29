@@ -202,7 +202,7 @@ Design note:
 ### Product scope
 
 #### Target user profile
-MALAddress is designed for hawker stall owners and stall assistants who need to manage supplier contacts efficiently during daily operations.  
+MALAddress is designed for hawker stall owners and stall assistants who need to manage supplier contacts efficiently during daily operations.
 These users typically:
 - prefer fast, keyboard-based workflows
 - need quick access to supplier availability
@@ -250,9 +250,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 4. System shows a success message and updates the contact list.
 
 **Extensions:**
-- 2a. Invalid opening hours format  
+- 2a. Invalid opening hours format
   2a1. System shows an error message with an example and does not add.
-- 3a. Duplicate contact  
+- 3a. Duplicate contact
   3a1. System rejects add and shows duplicate error.
 
 #### Use case: Tag a supplier (`tag`)
@@ -270,9 +270,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 4. System shows a success message and updates the list.
 
 **Extensions:**
-- 2a. Invalid index  
+- 2a. Invalid index
   2a1. System shows invalid index error.
-- 2b. Missing tag values  
+- 2b. Missing tag values
   2b1. System shows invalid format error with usage.
 
 #### Use case: List open suppliers (`open`)
