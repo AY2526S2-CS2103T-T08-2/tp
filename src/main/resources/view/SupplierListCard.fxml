@@ -79,6 +79,7 @@
                 <!-- RIGHT: Type badge + favourite -->
                 <VBox spacing="6" alignment="TOP_RIGHT">
                     <VBox fx:id="typeBadge"
+                          alignment="CENTER"
                           style="-fx-background-color: #7dd3c0; -fx-background-radius: 4; -fx-border-radius: 4;">
                         <padding>
                             <Insets top="4" right="8" bottom="4" left="8" />
@@ -86,7 +87,15 @@
                         <Label fx:id="type" text="\$type" styleClass="corner_label"
                                style="-fx-text-fill: #c0392b; -fx-font-weight: bold;" />
                     </VBox>
-
+                    <VBox fx:id="closingTimeBadge"
+                          alignment="CENTER"
+                          style="-fx-background-color: #FF8C00; -fx-background-radius: 4; -fx-border-radius: 4;">
+                        <padding>
+                            <Insets top="8" right="8" bottom="4" left="8" />
+                        </padding>
+                        <Label fx:id="closingTimeLabel" text="\$timeLeft" styleClass="corner_label"
+                               style="-fx-text-fill: #c0392b; -fx-font-weight: bold;" />
+                    </VBox>
                     <ImageView fx:id="favouriteIcon" fitWidth="16" preserveRatio="true">
                         <image>
                             <Image url="@/images/heart.png" />

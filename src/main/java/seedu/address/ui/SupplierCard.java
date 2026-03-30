@@ -50,6 +50,10 @@ public class SupplierCard extends UiPart<Region> {
     @FXML
     private Label type;
     @FXML
+    private VBox closingTimeBadge;
+    @FXML
+    private Label closingTimeLabel;
+    @FXML
     private ImageView favouriteIcon;
     @FXML
     private FlowPane tags;
@@ -67,12 +71,14 @@ public class SupplierCard extends UiPart<Region> {
         address.setText(supplier.getAddress().value);
         email.setText(supplier.getEmail().value);
         remarks.setText("Remarks: " + supplier.getRemarks());
-        openingHours.setText("Opening Hours: " + supplier.getOpeningHours() + "  |  " + supplier.getTimeLeft());
+        openingHours.setText("Opening Hours: " + supplier.getOpeningHours());
         typeBadge.setVisible(true);
         typeBadge.setManaged(true);
         favouriteIcon.setVisible(supplier.isFavourite());
         type.setText(supplier.getPersonType());
-
+        closingTimeLabel.setVisible(true);
+        closingTimeLabel.setManaged(true);
+        closingTimeLabel.setText(supplier.getTimeLeft());
         supplier.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
