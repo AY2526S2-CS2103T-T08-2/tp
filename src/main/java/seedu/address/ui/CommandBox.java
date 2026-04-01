@@ -55,8 +55,9 @@ public class CommandBox extends UiPart<Region> {
      * @param command The text to be inserted.
      */
     public void insertCommand(String command) {
-        String existing = commandTextField.getText();
-        commandTextField.setText(computeInsertedText(existing, command));
+        String updated = getUpdatedCommandText(commandTextField.getText(), command);
+        commandTextField.setText(updated);
+
         commandTextField.requestFocus();
         commandTextField.positionCaret(commandTextField.getText().length());
     }
@@ -69,17 +70,16 @@ public class CommandBox extends UiPart<Region> {
         return trimmed.isEmpty() ? 0 : trimmed.split("\\s+").length;
     }
     /**
-     * Checks the length of the current input text
-     * @param existing The current text to be inserted.
-     * @param command The current command being used
+     * Returns the updated command box text after inserting {@code toInsert}.
+     * <p>
+     * If the current text has fewer than {@code CLEAR_IF_FEWER_THAN_LETTERS} words,
+     * the text is replaced; otherwise, the new text is appended.
      */
-    static String computeInsertedText(String existing, String command) {
-        String current = existing == null ? "" : existing;
-
-        if (countWords(current) < CLEAR_IF_FEWER_THAN_LETTERS) {
-            return command;
+    static String getUpdatedCommandText(String existing, String toInsert) {
+        if (countWords(existing) < CLEAR_IF_FEWER_THAN_LETTERS) {
+            return toInsert;
         }
-        return current + command;
+        return existing + toInsert;
     }
     /**
      * Runs command immediately.
