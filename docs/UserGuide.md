@@ -4,29 +4,6 @@ title: "User Guide"
 pageNav: 3
 ---
 
-<style>
-  /* MALAddress maroon background (UserGuide page only) */
-  html, body {
-    background: #2C1010 !important;
-  }
-
-  /* White “paper” content so text stays readable */
-  #content-wrapper, .page-content, .content, main, #app main {
-    background: #ffffff;
-    color: #111111;
-    border-radius: 12px;
-    max-width: 1100px;
-    margin: 24px auto;
-    padding: 24px;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
-  }
-
-  /* Links inside content */
-  #content-wrapper a, .page-content a, .content a, main a {
-    color: #9b1c1c;
-  }
-</style>
-
 # MALAdress User Guide
 
 <!-- * Table of Contents -->
