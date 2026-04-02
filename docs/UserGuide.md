@@ -248,17 +248,19 @@ To clear remarks:
 
 --------------------------------------------------------------------------------------------------------------------
 
-### 4.11 Favourites: `fav`
-Use this command to mark/unmark a contact as a favourite.
+### 4.11 Favourites: `fav`, `unfav`
+Use these commands to set a contact as a favourite, where a heart shape shows up, or not.
 
 Format:
 `fav INDEX`
+`unfav INDEX`
 
 Expected Output:
 The contact is toggled as favourite (favourite indicator updates).
 
 Example:
-`fav 2`
+1) `fav 2` (set contact as a favourite)
+2) `unfav 2` (set contact as not a favourite)
 
 ![Alt text](./images/fav_command.png)
 
@@ -359,6 +361,7 @@ Tag | `tag INDEX t/TAG [t/TAG]...`
 Open | `open`
 Remarks | `remarks INDEX r/REMARKS`
 Favourite | `fav INDEX`
+Unfavourite | `unfav INDEX`
 Undo | `undo`
 Redo | `redo`
 Delete | `delete INDEX`
