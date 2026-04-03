@@ -9,6 +9,7 @@ pageNav: 3
 <!-- * Table of Contents -->
 <page-nav-print />
 
+--------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
 
 ## 1. Introduction
@@ -85,6 +86,8 @@ Use `open` to filter to suppliers that are currently available (“open now”).
 - Extra parameters for commands that do not take parameters (e.g., `help`, `list`, `open`, `clear`) will be ignored.
 - Commands are case-sensitive by default for command words (type them as shown).
 
+--------------------------------------------------------------------------------------------------------------------
+
 ### 4.2 Viewing Help: `help`
 Use this command to view available commands and their formats.
 
@@ -95,6 +98,7 @@ Expected Output:
 A help window is displayed with a list of commands and formats.
 ![Alt text](./images/help_command.png)
 
+--------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
 
 ### 4.3 Adding a Contact: `add`
@@ -140,6 +144,7 @@ Format:
 Expected Output:
 All contacts are displayed in the contact list panel.
 
+--------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
 
 ### 4.6 Finding Contacts: `find`
@@ -183,6 +188,7 @@ Example:
 Example (supplier opening hours):
 `edit 1 o/1000 - 1900`
 
+--------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
 
 ### 4.8 Tagging a Contact: `tag`
@@ -207,6 +213,7 @@ Run `tag INDEX t/...` to replace the tags.
 
 ![Alt text](./images/tag_command.png)
 
+--------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
 
 ### 4.9 Listing Open Suppliers: `open`
@@ -231,6 +238,7 @@ Run `open` to filter suppliers that are open now.
 
 ![Alt text](./images/open_command.png)
 
+--------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
 
 ### 4.10 Updating Remarks: `remarks`
@@ -250,6 +258,7 @@ To clear remarks:
 
 ![Alt text](./images/remark_command.png)
 
+--------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
 
 ### 4.11 Favourites: `fav`, `unfav`
@@ -268,6 +277,7 @@ Example:
 
 ![Alt text](./images/fav_command.png)
 
+--------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
 
 ### 4.12 Undo and Redo: `undo`, `redo`
@@ -333,6 +343,7 @@ Data is stored at:
 Warning:
 Invalid edits may cause data loss.
 
+--------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
 
 ## 6. FAQ
@@ -371,6 +382,7 @@ Redo | `redo`
 Delete | `delete INDEX`
 Clear | `clear`
 
+--------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
 
 ## 9. Glossary
