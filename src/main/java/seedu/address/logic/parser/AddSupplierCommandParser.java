@@ -50,8 +50,8 @@ public class AddSupplierCommandParser implements Parser<AddSupplierCommand> {
         }
 
         if (!arePrefixesPresent(argMultimap, PREFIX_TAG)) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                    AddSupplierCommand.MESSAGE_TAG_REQUIRED + AddSupplierCommand.MESSAGE_USAGE));
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddSupplierCommand.MESSAGE_TAG_REQUIRED));
         }
 
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS);
