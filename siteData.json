@@ -69,7 +69,8 @@
         "tagging-a-supplier": "Tagging a supplier",
         "open-suppliers": "Open suppliers",
         "delete": "Delete",
-        "clear": "Clear"
+        "clear": "Clear",
+        "undo-and-redo": "Undo and Redo"
       },
       "headingKeywords": {}
     },
