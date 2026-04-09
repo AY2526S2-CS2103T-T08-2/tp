@@ -34,7 +34,7 @@ Note:
 1. Open a terminal.
 2. `cd` into the folder containing the jar.
 3. Run:
-   `java -jar maladdress.jar`
+   `java -jar maladress.jar`
 
 A GUI similar to the following should appear:
 ![Alt text](./images/UI_screenshot.png)
@@ -85,6 +85,7 @@ Use `open` to filter to suppliers that are currently available (“open now”).
 - Commands are case-sensitive by default for command words (type them as shown).
 
 <div style="page-break-after: always;"></div>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ### 4.2 Viewing Help: `help`
@@ -95,6 +96,7 @@ Format:
 
 Expected Output:
 A help window is displayed with a list of commands and formats.
+
 ![Alt text](./images/help_command.png)
 
 --------------------------------------------------------------------------------------------------------------------
@@ -199,6 +201,9 @@ Format:
 What it does:
 - Replaces the tags of the person at INDEX with the provided tags.
 
+Warning:
+Existing tags before running the command will be removed.
+
 Expected Output:
 The selected contact’s tags are updated and shown in the contact card/list.
 
@@ -252,7 +257,7 @@ The selected contact’s remarks are updated.
 Example:
 `remarks 2 r/very expensive`
 
-To clear remarks:
+Example (clearing remarks):
 `remarks 2 r/`
 
 ![Alt text](./images/remark_command.png)
