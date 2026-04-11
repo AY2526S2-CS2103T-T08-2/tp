@@ -55,7 +55,7 @@
         "tag-feature": "Tag feature",
         "open-suppliers-feature": "Open suppliers feature",
         "remarks-feature": "Remarks feature",
-        "favourite-feature": "Favourite feature",
+        "favourite-and-unfavourite-features": "Favourite and unfavourite features",
         "undo-redo-feature": "Undo/redo feature",
         "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
         "appendix-requirements": "Appendix: Requirements",
@@ -69,7 +69,8 @@
         "adding-a-supplier": "Adding a supplier",
         "tagging-a-contact": "Tagging a contact",
         "open-suppliers": "Open suppliers",
-        "favourite-toggle": "Favourite toggle",
+        "favourite": "Favourite",
+        "unfavourite": "Unfavourite",
         "delete": "Delete",
         "clear": "Clear",
         "undo-and-redo": "Undo and Redo"
