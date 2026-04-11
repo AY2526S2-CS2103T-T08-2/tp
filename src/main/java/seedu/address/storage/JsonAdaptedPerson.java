@@ -158,7 +158,7 @@ class JsonAdaptedPerson {
                     : null;
 
             return new Supplier(modelName, modelPhone, modelEmail,
-                    modelAddress, modelRemarks, modelTags, openingHours, modelAltContact);
+                    modelAddress, modelRemarks, modelTags, modelIsFavourite, openingHours, modelAltContact);
         }
 
         return new Person(modelName, modelPhone, modelEmail,
