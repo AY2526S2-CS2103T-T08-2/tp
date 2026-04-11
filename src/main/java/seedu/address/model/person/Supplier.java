@@ -187,12 +187,7 @@ public class Supplier extends Person {
         boolean isAfterOpenTime = currentTime.isAfter(this.openTime);
         boolean isBeforeCloseTime = currentTime.isBefore(this.closeTime);
 
-        if (openTime.isBefore(closeTime)) {
-            // Normal case
-            return isAfterOpenTime && isBeforeCloseTime;
-        }
-
-        return false;
+        return isAfterOpenTime && isBeforeCloseTime;
     }
 
     /**
@@ -201,14 +196,18 @@ public class Supplier extends Person {
      */
     public String getTimeLeft() {
         LocalTime currentTime = LocalTime.now();
-        Duration duration = Duration.between(currentTime, closeTime);
 
-        if (duration.isNegative()) {
-            return Status.CLOSED.toString();
+        Duration durationUntilClose = Duration.between(currentTime, closeTime);
+        Duration durationUntilOpen = Duration.between(currentTime, openTime);
+
+        if (!isOpen()){
+            if (durationUntilOpen.isNegative() || durationUntilClose.isNegative()) {
+                return Status.CLOSED.toString();
+            }
         }
 
-        long hours = duration.toHours();
-        long minutes = duration.toMinutes() % MINUTES_PER_HOUR;
+        long hours = durationUntilClose.toHours();
+        long minutes = durationUntilClose.toMinutes() % MINUTES_PER_HOUR;
 
         return String.format(TIME_LEFT_PREFIX + Status.OPEN, hours, minutes);
     }
