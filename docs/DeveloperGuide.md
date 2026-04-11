@@ -183,19 +183,38 @@ High-level behaviour:
 3. The model updates the contact.
 4. The UI refreshes.
 
-### Favourite feature
+### Favourite and unfavourite features
 
-The `fav` command toggles the favourite state of a contact identified by index.
+MALAddress supports two separate commands for favourite status:
+- `fav` marks a contact as favourite
+- `unfav` removes the favourite status from a contact
+
+#### Favourite feature
+
+The `fav` command marks a contact identified by index as favourite.
 
 High-level behaviour:
 1. The command retrieves the target contact by index.
-2. If the contact is not currently favourited, the command creates a favourited version.
-3. If the contact is already favourited, the command creates a non-favourited version.
-4. The model updates the contact.
-5. The UI refreshes.
+2. The command creates a new contact object with favourite status set to true.
+3. The model updates the contact.
+4. The UI refreshes.
 
 Design note:
-- Favourite behaviour is implemented as a toggle, not a one-way mark-only action.
+- `fav` is a one-way command that marks a contact as favourite.
+- It does not toggle the state.
+
+#### Unfavourite feature
+
+The `unfav` command removes the favourite status of a contact identified by index.
+
+High-level behaviour:
+1. The command retrieves the target contact by index.
+2. The command creates a new contact object with favourite status set to false.
+3. The model updates the contact.
+4. The UI refreshes.
+
+Design note:
+- `unfav` is a separate one-way command that removes favourite status.
 
 ### Undo/redo feature
 
@@ -215,6 +234,7 @@ Supported data-changing commands include:
 - `tag`
 - `remarks`
 - `fav`
+- `unfav`
 
 Design notes:
 - Undo/redo history is session-based only.
@@ -366,18 +386,39 @@ For all use cases below, the system is `MALAddress`.
 
 **Use case ends.**
 
-#### Use case: Toggle favourite status (`fav`)
+#### Use case: Mark a contact as favourite (`fav`)
 
 **Actor:** hawker stall staff
 
 **Preconditions:** Target contact exists in the current displayed list.
 
-**Guarantees:** The selected contact’s favourite status is toggled.
+**Guarantees:** The selected contact is marked as favourite.
 
 **Main Success Scenario**
 1. User enters `fav INDEX`.
 2. System validates the index.
-3. System toggles the favourite status of the contact.
+3. System marks the contact as favourite.
+4. System displays a success message.
+5. System updates the contact list.
+
+**Extensions**
+- 2a. Index is invalid.
+    - 2a1. System shows an invalid-index error.
+
+**Use case ends.**
+
+#### Use case: Remove favourite status from a contact (`unfav`)
+
+**Actor:** hawker stall staff
+
+**Preconditions:** Target contact exists in the current displayed list.
+
+**Guarantees:** The selected contact is no longer marked as favourite.
+
+**Main Success Scenario**
+1. User enters `unfav INDEX`.
+2. System validates the index.
+3. System removes the contact’s favourite status.
 4. System displays a success message.
 5. System updates the contact list.
 
@@ -451,7 +492,7 @@ These instructions provide a starting point for testers. Testers are expected to
    `adds n/Ah Seng p/91234567 e/a@b.com a/Yishun o/0900 - 1800 t/vegetable`  
    Expected: Supplier appears in the list and a success message is shown.
 
-2. Test case with invalid opening hours:  
+2. Test case with invalid opening hours:
    `adds n/Test p/91234567 e/t@t.com a/Yishun o/0900-1800 t/veg`  
    Expected: Command fails with an error message showing the correct format example.
 
@@ -469,12 +510,17 @@ These instructions provide a starting point for testers. Testers are expected to
    `open`  
    Expected: The list shows only suppliers that are open now.
 
-### Favourite toggle
+### Favourite
 
 1. Prerequisite: list contacts.
-2. Test case:  
-   `fav 1`  
-   Expected: The first contact becomes favourited if it was not favourited before, or becomes non-favourited if it was already favourited.
+2. Test case: run `fav 1`
+   Expected: the first contact is marked as favourite.
+
+### Unfavourite
+
+1. Prerequisite: at least one contact is already favourited.
+2. Test case: run `unfav 1`
+   Expected: the first contact is no longer marked as favourite.
 
 ### Delete
 
@@ -496,5 +542,3 @@ These instructions provide a starting point for testers. Testers are expected to
    Expected: deletion is re-applied; contact removed again.
 4. Test case: run `undo` with nothing to undo
    Expected: error message shown; data unchanged.
-
-
