@@ -48,6 +48,8 @@ public class TagCommand extends Command {
             "ct/ cannot be used together with at/ or dt/.";
     public static final String MESSAGE_TAG_NOT_FOUND =
             "One or more tags to delete do not exist on this contact.";
+    public static final String MESSAGE_SUPPLIER_MUST_HAVE_TAG =
+            "Tag names should be alphanumeric, and suppliers must have at least one tag.";
 
     private final Index index;
     private final Set<Tag> addTags;
@@ -90,7 +92,7 @@ public class TagCommand extends Command {
         }
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
-        Set<Tag> updatedTags = getUpdatedTags(personToEdit.getTags());
+        Set<Tag> updatedTags = getUpdatedTags(personToEdit, personToEdit.getTags());
 
         Person taggedPerson = createTaggedPerson(personToEdit, updatedTags);
 
@@ -108,20 +110,22 @@ public class TagCommand extends Command {
     /**
      * Returns the updated tag set after applying the requested tag actions.
      */
-    private Set<Tag> getUpdatedTags(Set<Tag> currentTags) throws CommandException {
+    private Set<Tag> getUpdatedTags(Person personToEdit, Set<Tag> currentTags) throws CommandException {
         Set<Tag> updatedTags = new HashSet<>(currentTags);
 
         if (clearTags) {
             updatedTags.clear();
-            return updatedTags;
+        } else {
+            if (!updatedTags.containsAll(deleteTags)) {
+                throw new CommandException(MESSAGE_TAG_NOT_FOUND);
+            }
+            updatedTags.removeAll(deleteTags);
+            updatedTags.addAll(addTags);
         }
 
-        if (!updatedTags.containsAll(deleteTags)) {
-            throw new CommandException(MESSAGE_TAG_NOT_FOUND);
+        if (personToEdit instanceof Supplier && updatedTags.isEmpty()) {
+            throw new CommandException(MESSAGE_SUPPLIER_MUST_HAVE_TAG);
         }
-
-        updatedTags.removeAll(deleteTags);
-        updatedTags.addAll(addTags);
 
         return updatedTags;
     }

@@ -47,6 +47,10 @@ public class TagCommandParser implements Parser<TagCommand> {
             throw new ParseException(TagCommand.MESSAGE_CLEAR_TAGS_CONFLICT);
         }
 
+        if (addTags.contains("") || deleteTags.contains("")) {
+            throw new ParseException(TagCommand.MESSAGE_SUPPLIER_MUST_HAVE_TAG);
+        }
+
         Set<Tag> addTagSet = ParserUtil.parseTags(addTags);
         Set<Tag> deleteTagSet = ParserUtil.parseTags(deleteTags);
 
