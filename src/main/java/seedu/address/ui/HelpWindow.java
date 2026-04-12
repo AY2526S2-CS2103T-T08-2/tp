@@ -17,37 +17,37 @@ public class HelpWindow extends UiPart<Stage> {
 
     public static final String USERGUIDE_URL = " https://ay2526s2-cs2103t-t08-2.github.io/tp/index.html";
     public static final String HELP_MESSAGE = """
-Command:	`Format`
+Command:       `Format`
 
-Help:	`help`
+Help:          `help`
 
-Add:	`add n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]...`
+Add:           `add n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]...`
 
-Add Supplier:	`adds n/NAME p/PHONE e/EMAIL a/ADDRESS o/HHmm - HHmm t/TAG [t/TAG]...`
+Add Supplier:  `adds n/NAME p/PHONE e/EMAIL a/ADDRESS o/HHmm - HHmm t/TAG [t/TAG]...`
 
-List:	`list`
+List:          `list`
 
-Find:	`find KEYWORD [MORE_KEYWORDS]`
+Find:          `find KEYWORD [MORE_KEYWORDS]`
 
-Edit:	`edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [o/HHmm - HHmm]`
+Edit:          `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [o/HHmm - HHmm]`
 
-Tag:	`tag INDEX [at/TAG]... [dt/TAG]... [ct/]`
+Tag:           `tag INDEX [at/TAG]... [dt/TAG]... [ct/]`
 
-Open:	`open`
+Open:          `open`
 
-Remarks:	`remarks INDEX r/REMARKS`
+Remarks:       `remarks INDEX r/REMARKS`
 
-Favourite:	`fav INDEX`
+Favourite:     `fav INDEX`
 
-Unfavourite:`unfav INDEX`
+Unfavourite:   `unfav INDEX`
 
-Undo	`undo`
+Undo           `undo`
 
-Redo	`redo`
+Redo           `redo`
 
-Delete	`delete INDEX`
+Delete         `delete INDEX`
 
-Clear	`clear`
+Clear          `clear`
 
 
 For more information, refer to the user guide:""" + USERGUIDE_URL;
