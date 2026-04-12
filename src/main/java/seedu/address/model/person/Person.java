@@ -4,7 +4,6 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
 
@@ -145,11 +144,10 @@ public class Person {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof Person)) {
+        if (!(other instanceof Person otherPerson)) {
             return false;
         }
 
-        Person otherPerson = (Person) other;
         return name.equals(otherPerson.name)
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
