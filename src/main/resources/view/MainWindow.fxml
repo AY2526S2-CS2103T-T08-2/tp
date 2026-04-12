@@ -26,6 +26,7 @@
         <MenuBar fx:id="menuBar" VBox.vgrow="NEVER"
                  style="-fx-background-color: #2a0a0a; -fx-border-color: #5a1a1a; -fx-border-width: 0 0 1 0;">
           <Menu mnemonicParsing="false" text="File">
+            <MenuItem mnemonicParsing="false" onAction="#handleClear" text="Clear" />
             <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
           </Menu>
           <Menu mnemonicParsing="false" text="Help">

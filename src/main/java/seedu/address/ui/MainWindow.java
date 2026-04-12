@@ -143,6 +143,14 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /**
+     * Handles the clear button.
+     */
+    @FXML
+    public void handleClear() throws CommandException, ParseException {
+        executeCommand("clear");
+    }
+
+    /**
      * Opens the help window or focuses on it if it's already opened.
      */
     @FXML
