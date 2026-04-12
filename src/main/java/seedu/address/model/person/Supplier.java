@@ -84,7 +84,18 @@ public class Supplier extends Person {
         this.alternativeContact = alternativeContact;
     }
 
-    private LocalTime[] parseTime(String openingHours) throws IllegalArgumentException, DateTimeException {
+    /**
+     * Parses a string representing opening hours into an array of {@code LocalTime}.
+     * <p>
+     * The input string must follow the format {@code "HH:mm - HH:mm"} (e.g., {@code "09:00 - 18:00"}).
+     * The opening time must be strictly before the closing time.
+     *
+     * @param openingHours The string representing the opening and closing times.
+     * @return An array where index 0 is the opening time and index 1 is the closing time.
+     * @throws IllegalArgumentException If the input does not match the expected format.
+     * @throws DateTimeException If the opening time is not before the closing time.
+     */
+    public LocalTime[] parseTime(String openingHours) throws IllegalArgumentException, DateTimeException {
         if (!isValidFormat(openingHours)) {
             throw new IllegalArgumentException();
         }
