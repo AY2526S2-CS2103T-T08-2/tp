@@ -108,7 +108,7 @@ Format:
 `add n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]...`
 
 Warning:
-Duplicate names will cause an error.
+Duplicate names will cause an error regardless of their case.
 
 Expected Output:
 The contact list updates with the new contact.
@@ -130,7 +130,7 @@ Notes:
 - Suppliers must have at least one tag.
 
 Warning:
-Duplicate names will cause an error.
+Duplicate names will cause an error regardless of their case.
 
 Expected Output:
 The supplier appears in the contact list with opening hours and tags shown.
