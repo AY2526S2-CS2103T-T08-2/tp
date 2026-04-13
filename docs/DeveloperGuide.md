@@ -145,6 +145,10 @@ The `add` command is kept because hawker stall operations may involve useful con
 
 The `adds` command is specifically for supplier contacts and supports opening hours so that the `open` command can filter suppliers who are currently available.
 
+Names should not be blank or more than 49 Characters, and it can only contain alphanumeric characters, spaces, and the following special characters: `@`, /, &, ., -, (, ), ', ,, ;, [, ], ~, !, ^, _, *, #, $, +, |, {, }, <, >, ?, \, :, =
+
+Note: Although adding `/` is allowed in names, putting prefixes between spaces like ` p/ ` can result in multiple value error
+
 ### Tag feature
 
 The `tag` command modifies the tags of a contact identified by index.
@@ -164,6 +168,10 @@ High-level behaviour:
 4. A new `Person` or `Supplier` object is created with identical fields except for the updated tags.
 5. The model updates the contact via `Model#setPerson(...)`.
 6. The filtered list refreshes and the UI updates.
+7. Each Tag has a letter limit of 20
+8. 'ct/' cannot be used on Supplier at all
+9. 'dt/' cannot be used on Supplier with one tag remaining
+10. Each Supplier needs to have a Tag
 
 Design notes:
 - Tag modification is intentionally separated from `edit`.

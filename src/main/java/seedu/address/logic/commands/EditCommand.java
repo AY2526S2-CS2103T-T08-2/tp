@@ -54,8 +54,10 @@ public class EditCommand extends Command {
     public static final String MESSAGE_TAG_NOT_ALLOWED =
             "Tags cannot be edited using edit. Use the tag command instead.";
     public static final String MESSAGE_INCORRECT_TIME_FORMAT =
-            "Opening hours should follow 'HHmm - HHmm' (e.g., 0900 - 1800).";
-
+            "Opening hours should be in the format HHmm - HHmm, "
+                    + "where HHmm is between 0000 and 2359.";
+    public static final String MESSAGE_INVALID_VALUE =
+            "The opening time must be strictly before the closing time (e.g., 0800 - 1700).";
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
 
