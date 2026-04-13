@@ -570,3 +570,7 @@ These instructions provide a starting point for testers. Testers are expected to
    Expected: deletion is re-applied; contact removed again.
 4. Test case: run `undo` with nothing to undo
    Expected: error message shown; data unchanged.
+
+## Appendix: Planned Enhancement
+1. Allow closing hours to be set beyond midnight
+2. Implement data backup and restoration options

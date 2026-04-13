@@ -123,6 +123,14 @@ Use this command to add a general contact.
 Format:
 `add n/NAME p/PHONE e/EMAIL a/ADDRESS \[t/TAG]...`
 
+Notes:
+- Remarks are **not** included in `adds`.
+- This is intentional, so that `adds` does not become too lengthy to input.
+- If you want to attach a remark, add the supplier first, then use the `remarks` command.
+- Names must not be blank or exceed 49 characters.
+- Names may contain alphanumeric characters, spaces, and the following special characters: `@ / & . - ( ) ' , ; [ ] ~ ! ^ _ * # $ + | { } < > ? \ : = `
+- Although adding `\` is allowed in names, putting prefixes between spaces like ` p/ ` can result in multiple value error
+
 Warning:
 Duplicate names will cause an error regardless of their case.
 
@@ -149,6 +157,10 @@ Notes:
 - Remarks are **not** included in `adds`.
 - This is intentional, so that `adds` does not become too lengthy to input.
 - If you want to attach a remark, add the supplier first, then use the `remarks` command.
+- Although adding `\` is allowed in names, putting prefixes between spaces like ` p/ ` can result in multiple value error 
+- Names must not be blank or exceed 49 characters.
+- Names may contain alphanumeric characters, spaces, and the following special characters: `@ / & . - ( ) ' , ; [ ] ~ ! ^ _ * # $ + | { } < > ? \ : =`
+
 
 Warning:
 Duplicate names will cause an error regardless of their case.
@@ -210,7 +222,7 @@ Format:
 Notes:
 
 * INDEX refers to the number shown in the current list.
-* Opening hours should only be used for suppliers.
+* Editing Opening hours should only be used on Suppliers.
 * Tags cannot be edited using `edit`. Use `tag` instead.
 
 Expected Output:
@@ -244,7 +256,10 @@ Rules:
 * `INDEX` refers to the number shown in the current displayed list
 * At least one of `at/`, `dt/`, or `ct/` must be provided
 * `ct/` cannot be used together with `at/` or `dt/`
+* `ct/` cannot be used on Supplier at all
+* `dt/`cannot be used on Supplier with 1 tag remaining
 * `edit` does not modify tags; use `tag` instead
+* Each tag has a letter limit of at most 20
 
 Expected Output:
 The selected contact’s tags are updated and shown in the contact card/list.
@@ -415,7 +430,7 @@ All changes are saved automatically. No manual saving is required.
 ### Editing the Data File
 
 Data is stored at:
-`\[JAR file location]/data/maladress-data.json`
+`/[JAR file location]/data/maladress-data.json`
 
 Warning:
 Invalid edits may cause data loss.
@@ -476,6 +491,3 @@ Remedy: exit fullscreen before opening the dialog.
 |Opening hours|Supplier availability window in the format `HHmm - HHmm` (e.g., `0900 - 1800`).|
 |Open supplier|A supplier whose opening hours include the current time.|
 |Favourite|A contact marked as important (shown with a favourite indicator).|
-
-
-
