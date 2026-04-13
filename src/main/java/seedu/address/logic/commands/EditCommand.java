@@ -57,7 +57,11 @@ public class EditCommand extends Command {
             "Opening hours should be in the format HHmm - HHmm, "
                     + "where HHmm is between 0000 and 2359.";
     public static final String MESSAGE_INVALID_VALUE =
-            "The opening time must be strictly before the closing time (e.g., 0800 - 1700).";
+            "The opening time must be strictly before the closing time (e.g., 0800 - 1700)."
+            + "Opening hours should follow 'HHmm - HHmm' (e.g., 0900 - 1800).";
+    public static final String MESSAGE_NOT_SUPPLIER_NO_HOUR =
+            "Operating hour does not exist and cannot be edited for non-suppliers!";
+
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
 
@@ -79,7 +83,7 @@ public class EditCommand extends Command {
         List<Person> lastShownList = model.getFilteredPersonList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+            throw new CommandException(Messages.MESSAGE_INDEX_NOT_IN_LIST);
         }
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
@@ -87,6 +91,8 @@ public class EditCommand extends Command {
 
         if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        } else if (!(personToEdit instanceof Supplier) && editPersonDescriptor.getOpeningHours().isPresent()) {
+            throw new CommandException(MESSAGE_NOT_SUPPLIER_NO_HOUR);
         }
 
         model.saveStateForUndo();
