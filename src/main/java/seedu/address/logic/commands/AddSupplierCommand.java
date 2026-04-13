@@ -45,8 +45,7 @@ public class AddSupplierCommand extends Command {
 
     public static final String MESSAGE_TAG_REQUIRED = "Suppliers must have at least one tag (t/...)\n";
     public static final String MESSAGE_OPENING_HOURS_REQUIRED = "Suppliers must have opening hours (o/...)\n";
-    public static final String MESSAGE_INCORRECT_TIME_FORMAT =
-            "Opening hours should be in the format HHmm - HHmm.";
+    public static final String MESSAGE_INCORRECT_TIME_FORMAT = "Opening hours should be in the format HHmm - HHmm.";
     public static final String MESSAGE_INVALID_TIME = "Opening hours should be between 0000 and 2359, and\n"
             + "the opening time must be strictly before the closing time (e.g., 0800 - 1700).";
 
