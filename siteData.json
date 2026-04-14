@@ -40,7 +40,7 @@
       "src": "DeveloperGuide.md",
       "title": "Developer Guide",
       "headings": {
-        "maladdress-developer-guide": "MALAddress Developer Guide",
+        "maladress-developer-guide": "MALAdress Developer Guide",
         "acknowledgements": "Acknowledgements",
         "setting-up-and-getting-started": "Setting up and getting started",
         "design": "Design",
