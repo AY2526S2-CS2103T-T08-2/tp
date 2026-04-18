@@ -116,6 +116,7 @@
     },
     {
       "src": "UserGuide.md",
+      "title": "User Guide",
       "headings": {
         "maladress-user-guide": "MALAdress User Guide",
         "1-introduction": "1. Introduction",
